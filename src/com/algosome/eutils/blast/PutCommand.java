@@ -374,11 +374,11 @@ public class PutCommand extends QBlastCommand{
         //setAutoFormat("Off");
         setDatabase("nr");
        // setDBGenericCode(1);
-        setDescriptions(500);
+        setDescriptions(100);
         //setEndPoints(false);
         //setCompositionBasedStatistics(false);
         setExpectValue(10);
-        setWordSize(28);
+        setWordSize(6);
        // setGeneticCode(1);
         //setHitListSize(500);
        // setThreshhold(0.001f);

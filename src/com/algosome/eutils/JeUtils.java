@@ -194,25 +194,4 @@ public final class JeUtils extends NotificationThread implements OutputListener{
 		
 	}
 	
-	public static void main(String[] args) throws Exception{
-		final JeUtils je = new JeUtils();
-		je.getESearch().setTerm("rri1");
-		je.getESearch().setDatabase(EntrezSearch.DB_NUCLEOTIDE);
-		
-		je.addThreadListener(new ThreadListener(){
-
-			@Override
-			public void threadFinished(Runnable runner) {
-				
-			}
-
-			@Override
-			public void threadStarted(Runnable runner) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
-		(new Thread(je)).start();
-	}
 }
