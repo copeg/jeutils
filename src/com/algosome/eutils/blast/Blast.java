@@ -125,7 +125,7 @@ public class Blast implements Runnable{
                 	logger.error(e.getMessage(), e);
                 	continue;
                 }
-                logger.debug(getCommand.getStatus());
+                logger.info(getCommand.getStatus());
                 wt = getCommand.getEstimatedWaitTime();
                 if ( wt != null ){
                 	waitTime = Integer.parseInt(wt) * 1000;
@@ -164,31 +164,4 @@ public class Blast implements Runnable{
         return putCommand;
     }
     
-    public static void main(String[] args) throws Exception{
-    	BasicConfigurator.configure();
-    	//PropertyConfigurator.configure(Blast.class.getResource("/log4j.prop"));
-    	logger.info("Blast utility test");
-    	PutCommand put = new PutCommand();
-//    	put.setQuery("MTCLDELAHSLESKSGTTNSKTRNSKIKTIDLYQQNELSGQHSQDQDKFYRLPAMDPIARDKKPWKQDVN"+
-//"YFNKCYISSLALMKMCTHAQTGGSIEIMGMLVGKISGHSIIVMDTYRLPVEGTETRVNAQNEAYTYMVEY"+
-//"LTERQQLSNGKNEENIVGWYHRHPRYGCWLKGIDVSTQSLNQGLQDPYLAIVVDPVKTLKQGKVEIGAFR"+
-//"NVS");
-    	put.setQuery("agaaattaaagctacttacaacaacggtctactacaaattaaggtgcctaaaattgtcaatgacactgaaaagccgaagccaaaaaagaggatcgccattgaggaaatacccgacgaagaattggagtttgaagaaaatcccaaccctacggtagaaaattgaatatcgtatctgtttatacacacatacatacatttatatttataataagcgttaaaatttcggcagaatatctgtcaaccacacaaaaatcatacaacgaatggtatatgcttcatttctttgtttcgcattagctgcgctatttgactcaaattattattttttactaagacgacgcgtcacagtgttcgagtctgtgtcatttcttttgtaattctcttaaaccacttcataaagttgtgaagttcatagcaaaattcttccgcaaaaagatgaatcttagttctcagcccaccaaaagaggtacatgctaagatcatacagaagttattgtcacttcttaccttgctcttaaatgtacattacaaccgggtattatatcttacatcatcgtataatatgatctttctttatggagaaaatttttttttcactcgaccaaagctcccattgcttctgaagagtgtagtgtatattggtacatcttctcttgaaagactccattgtactgtaacaaaaagcggtttcttcatcgacttgctcggaataacatctatatctgcccactagcaacaatgtcggattcaaaccaaggcaacaatcagcaaaactaccagcaatacagccagaacggtaaccaacaacaaggtaacaacagataccaaggttatcaagcttacaatgctcaagcccaacctgcaggtgggtactaccaaaattaccaaggttattctgggtaccaacaaggtggctatcaacagtacaatcccgacgccggttaccagcaacagtataatcctcaaggaggctatcaacagtacaatcctcaaggcggttatcagcagcaattcaatccacaaggtggccgtggaaattacaaaaacttcaactacaataacaatttgcaaggatatcaagctggtttccaaccacagtctcaaggtatgtctttgaacgactttcaaaagcaacaaaagcaggccgctcccaaaccaaagaagactttgaagcttgtctccagttccggtatcaagttggccaatgctaccaagaaggttggcacaaaacctgccgaatctgataagaaagaggaagagaagtctgctgaaaccaaagaaccaactaaagagccaacaaaggtcgaagaaccagttaaaaaggaggagaaaccagtccagactgaagaaaagacggaggaaaaatcggaacttccaaaggtagaagaccttaaaatctctgaatcaacacataataccaacaatgccaatgttaccagtgctgatgccttgatcaaggaacaggaagaagaagtggatgacgaagttgttaacgatatgtttggtggtaaagatcacgtttctttaattttcatgggtcatgttgatgccggtaaatctactatgggtggtaatctactatacttgactggctctgtggataagagaactattgagaaatatgaaagagaagccaaggatgcaggcagacaaggttggtacttgtcatgggtcatggataccaacaaagaagaaagaaatgatggtaagactatcgaagttggtaaggcctactttgaaactgaaaaaaggcgttataccatattggatgctcctggtcataaaatgtacgtttccgagatgatcggtggtgcttctcaagctgatgttggtgttttggtcatttccgccagaaagggtgagtacgaaaccggttttgagagaggtggtcaaactcgtgaacacgccctattggccaagacccaaggtgttaataagatggttgtcgtcgtaaataagatggatgacccaaccgttaactggtctaaggaacgttacgaccaatgtgtgagtaatgtcagcaatttcttgagagcaattggttacaacattaagacagacgttgtatttatgccagtatccggctacagtggtgcaaatttgaaagatcacgtagatccaaaagaatgcccatggtacaccggcccaactctgttagaatatctggatacaatgaaccacgtcgaccgtcacatcaatgctccattcatgttgcctattgccgctaagatgaaggatctaggtaccatcgttgaaggtaaaattgaatccggtcatatcaaaaagggtcaatccaccctactgatgcctaacaaaaccgctgtggaaattcaaaatatttacaacgaaactgaaaatgaagttgatatggctatgtgtggtgagcaagttaaactaagaatcaaaggtgttgaagaagaagacatttcaccaggttttgtactaacatcgccaaagaaccctatcaagagtgttaccaagtttgtagctcaaattgctattgtagaattaaaatctatcatagcagccggtttttcatgtgttatgcatgttcatacagcaattgaagaggtacatattgttaagttattgcacaaattagaaaagggtaccaaccgtaagtcaaagaaaccacctgcttttgctaagaagggtatgaaggtcatcgctgttttagaaactgaagctccagtttgtgtggaaacttaccaagattaccctcaattaggtagattcactttgagagatcaaggtaccacaatagcaattggtaaaattgttaaaattgccgagtaaatttcttgcaaacataagtaaatgcaaacacaataataccgatcataaagcattttcttctatattaaaaaacaaggtttaataaagctgttatatatatatatatatatatagacgtataattagtttagttctttttgtaccatataccataaacaaggtaaacttcacctctcaatatatctagaatttcataaaaatatctagcaaggtttcaactccttcaatcacgttttcatcataacccttccccggcgttatttcagaatgtgcaaaatctattagtgacatggaactcaaagaaccagttgtttttttgtcctttggtccttcgctgcttccctcggcatcatcatcatcatcatcatcattatcatcatcgtcgtcatcatcgtctataaaatcatctcgcataagtttgtcaacatcatttagtaattcccatcgctccgggtctccttcgtaaataaacaaaagactacttgatatcattctaacttcttcttctagcatagtattataaaa");
-    	put.setProgram("blastn");
-    	put.setDatabase("nr");
-    	
-    	GetCommand get = new GetCommand(new BlastParser(){
-
-			@Override
-			public void parseBlastOutput(String output) {
-				System.out.println(output);
-			}
-    		
-    	});
-    	get.setFormatType("Text");
-    	logger.info("Blasting");
-    	Blast blast = new Blast(put, get);
-    	blast.run();
-    	
-    }
 }
